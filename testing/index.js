@@ -1,14 +1,31 @@
-import express, { json } from 'express';
+const express = require('express');
 const app = express();
-import cors from 'cors';
+const cors = require('cors');
+const PORT = 3001;
 
 app.use(cors())
-app.use(json())
+app.use(express.json())
 
 const jobs = [];
 let id = 0;
 
-app.get('/job/:requestedId', (request, response)=>{
+app.get('/jobs', (request, response)=>{
+  response.send(jobs)
+})
+
+app.post('/jobs', (request, response)=>{
+  data = request.body;
+  data.id = id;
+  id++;
+  jobs.push(request.body)
+  
+  response.send({
+    success : true,
+    data : data
+  })
+})
+
+app.get('/jobs/:requestedId', (request, response)=>{
   const requestedId =  request.params.requestedId;
   for(const job of jobs){
     if(job.id == requestedId) {
@@ -27,22 +44,6 @@ app.get('/job/:requestedId', (request, response)=>{
   });
 })
 
-app.get('/jobs', (request, response)=>{
-  response.send(jobs)
-})
-
-app.post('/jobs', (request, response)=>{
-  data = request.body;
-  data.id = id;
-  id++;
-  jobs.push(request.body)
-  
-  response.send({
-    success : true,
-    data : data
-  })
-})
-
-app.listen(3001, (err)=>{
-  if(!err) console.log('app running on port 3001');
+app.listen(PORT, (err)=>{
+  if(!err) console.log('app running on : http://localhost:'+PORT);
 })
