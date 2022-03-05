@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Postman
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="bg-styles.css">
+    <link rel="html" href="index.html">
+
+
+
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <!-- <div clas="logo">Postman</div> -->
+        <img src="images/astronaut-logo.png" alt="Postman" class="logo">
+        <!-- <img class="logo" src="images/Astronaut/Astronaut/Astronaut-01.svg"/> -->
+        <ul class="nav-links">
+            <li><a class="nav-a" href="#home">Home</a></li>
+            <li><a class="nav-a" href="#about-section">About</a></li>
+            <li><a class="nav-a" href="#start">Start Free</a></li>
+            <li><a class="nav-a" href="#contact">Contact Us</a></li>
+            <!-- <li class="login-signup"><a href="#">Login/SignUp</a></li> -->
+        </ul>
+        <img src="images/menu-btn.png" alt="" class="menu-btn">
+    </nav>
+
+
+    <header id="home">
+        <div class="header-content">
+            <h2>Build APIs together</h2>
+            <div class="line"></div>
+            <h1>The future will be built with APIs</h1>
+            <a href="#more" class="ctn">Learn More</a>
+
+        </div>
+    </header>
+
+    <!-- == Events == -->
+    <section id="more" class="learn-more">
+        <div class="title">
+            <h1>
+
+            </h1>
+        </div>
+        <div class="row">
+            <div class="col">
+                <h1>What is Postman ?</h1>
+                <p>Postman is an API platform for building and using APIs. Postman simplifies each step of the API
+                    lifecycle and streamlines collaboration so you can create better APIs—faster.</p>
+
+            </div>
+            <div class="col">
+                <img src="images/Integrated/Integrated/Integrated.png" class="col-img">
+            </div>
+        </div>
+    </section>
+
+    <!-- == About == -->
+    <section id="about-section" class="about">
+        <div class="about-content">
+            <h1>What's happening on Postman ?</h1>
+            <p>Postman is a popular application programming interface that makes it easy for developers to create,
+                share, test and document APIs. This is done by allowing the users to create and save simple and complex
+                HTTP/s requests, as well as read their responses. It can make various types of HTTP requests like GET,
+                POST, PUT, PATCH, saving environments for later use, converting the API to code for various languages
+                like JavaScript.
+            </p>
+        </div>
+    </section>
+
+    <!-- == Start Free == -->
+    <section id="start">
+        <div class="col-2">
+            <div class="row-2">
+                <img src="images/calendar.png" alt="">
+            </div>
+            <div class="row-2">
+                <h1>Start effectively</h1>
+            </div>
+            <div class="row-2">
+                <button class="start-btn"><a href="index.html">Start Now</a></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- == Contact Us == -->
+    <section id="contact">
+        <div class="contact-content">
+            <h1>Contact Us</h1>
+            <ul>
+                <li><a><img src="images/icons-gmail.png"></a></li>
+                <li><a><img src="images/icons-phone.png"></a></li>
+                <li><a><img src="images/icons-linkedin.png"></a></li>
+                <li><a><img src="images/icons-instagram.png"></a></li>
+                <li><a><img src="images/icons-facebook.png"></a></li>
+                <li><a><img src="images/icons-twitter.png"></a></li>
+            </ul>
+            <div class="ending-line"></div>
+        </div>
+    </section>
+
+
+    <script>
+        const menuBtn = document.querySelector('.menu-btn');
+        const navlinks = document.querySelector('.nav-links');
+        const links = document.querySelectorAll(".nav-links li");
+        const a = document.getElementsByClassName("nav-a");
+        menuBtn.addEventListener('click', () => {
+            console.log(navlinks.style.display);
+            if (navlinks.style.display.trim() == "") {
+                navlinks.style.display = "flex";
+            }
+            else {
+                navlinks.style.display = "";
+            }
+        })
+        for (const link of links)
+            link.addEventListener('click', () => {
+                if (navlinks.style.display == "flex") {
+                    navlinks.style.display = "";
+                }
+            })
+            /* 
+        function changeColor(e) {
+            e.target.style.color = 'rgb(204, 114, 185)';
+        }
+        for (const atag of a) {
+            atag.addEventListener('click', changeColor);
+        }
+        */
+    </script>
+</body>
+
+</html>
