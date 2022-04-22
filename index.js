@@ -1,4 +1,4 @@
-console.log('This is my project 6 from JavaScript course');
+console.log('This is my project');
 
 // Utility functions:
 // 1. Utility function to get DOM element from string
@@ -91,7 +91,7 @@ submit.addEventListener('click', () => {
     console.log('contentType is ', contentType);
     console.log('data is ', data);
 
-    // if the request type is get, invoke fetch api to create a post request
+    // if the request type is get, invoke fetch api to create a get request
     if (requestType=='GET'){
         fetch(url, {
             method: 'GET',   
@@ -100,6 +100,10 @@ submit.addEventListener('click', () => {
         .then((text) =>{
             // document.getElementById('responseJsonText').value = text;
             document.getElementById('responsePrism').innerHTML = text;
+            Prism.highlightAll();
+        })
+        .catch(error => {
+            document.getElementById('responsePrism').innerHTML = error;
             Prism.highlightAll();
         });
     }
@@ -114,10 +118,16 @@ submit.addEventListener('click', () => {
         })
         .then(response=> response.text())
         .then((text) =>{
+            console.log(text);
             // document.getElementById('responseJsonText').value = text;
             document.getElementById('responsePrism').innerHTML = text;
             Prism.highlightAll();
+        })
+        .catch(error => {
+            document.getElementById('responsePrism').innerHTML = error;
+            Prism.highlightAll();
         });
+
 
     }
 

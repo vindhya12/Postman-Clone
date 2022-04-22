@@ -5,8 +5,14 @@ const PORT = 3001;
 
 app.use(cors())
 app.use(express.json())
+app.use((request, response, next) => {
+  console.log(request.url, request.body);
+  next();
+})
 
+// global jobs array
 const jobs = [];
+// global id variable
 let id = 0;
 
 app.get('/jobs', (request, response)=>{
